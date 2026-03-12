@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-bg: #06080f;
+  --color-card: #0d1526;
+  --color-border: rgba(100, 181, 246, 0.12);
+  --color-green: #00e676;
+  --color-red: #ff1744;
+  --color-blue: #1a73e8;
+  --color-cyan: #00b4d8;
+  --color-yellow: #ffd740;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--color-bg);
+  color: #e0e6ff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03); }
+::-webkit-scrollbar-thumb { background: rgba(100, 181, 246, 0.3); border-radius: 2px; }
+
+/* Card */
+.card {
+  @apply bg-dark-700 border border-white/5 rounded-xl;
+}
+
+/* Input */
+.input {
+  @apply bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm outline-none
+    focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/20 transition-all;
+}
+
+/* Button variants */
+.btn-primary {
+  @apply bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold
+    px-4 py-2 rounded-lg hover:opacity-90 transition-all active:scale-95;
+}
+
+.btn-ghost {
+  @apply bg-white/5 text-white/70 hover:bg-white/10 hover:text-white
+    px-4 py-2 rounded-lg transition-all;
+}
+
+/* Price colors */
+.text-green { color: var(--color-green); }
+.text-red { color: var(--color-red); }
+
+/* Animated price update */
+.price-flash-green {
+  animation: flashGreen 0.5s ease-out;
+}
+.price-flash-red {
+  animation: flashRed 0.5s ease-out;
+}
+
+@keyframes flashGreen {
+  0% { color: var(--color-green); }
+  100% { color: inherit; }
+}
+@keyframes flashRed {
+  0% { color: var(--color-red); }
+  100% { color: inherit; }
+}
+
+/* Pro badge */
+.pro-badge {
+  @apply bg-gradient-to-r from-yellow-500/20 to-orange-500/20
+    border border-yellow-500/30 text-yellow-400 text-xs font-bold
+    px-2 py-0.5 rounded-full;
+}
